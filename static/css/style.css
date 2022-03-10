@@ -1,0 +1,38 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.home_page{
+    background-color: #0C0C0C;
+    height: 580px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    font-size: 23px;
+    color: #9DA2AB;
+    align-items: center;
+}
+.navbar .navlists ul li{
+    list-style: none;
+    display: inline;
+    font-size: 20px;
+    font-weight: normal;
+    color: #9DA2AB;
+    padding: 5px 15px 5px 15px;
+}
+.navbar .navlists ul li a{
+    color: #9DA2AB;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: normal;
+}
+.navbar .signup{
+    border:1px solid #9DA2AB;
+    /* padding: 7px 15px 7px 15px; */
+    border-radius: 20px;
+}
