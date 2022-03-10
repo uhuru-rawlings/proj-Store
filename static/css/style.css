@@ -2,7 +2,8 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .home_page{
-    background-color: #0C0C0C;
+    /* background-color: #0C0C0C; */
+    background-color: #151B1B;
     height: 580px;
     position: absolute;
     top: 0;
@@ -33,6 +34,17 @@
 }
 .navbar .signup{
     border:1px solid #9DA2AB;
-    /* padding: 7px 15px 7px 15px; */
     border-radius: 20px;
+}
+.welcome_texts{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.welcome_texts .texts, .welcome_texts .images{
+    width: 50%;
+}
+.welcome_texts .texts{
+    font-size: 30px;
+    color: #9DA2AB;
 }
