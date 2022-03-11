@@ -1,0 +1,32 @@
+.signup_form{
+    width: 35%;
+    margin: auto;
+    margin-top: 100px;
+    border: 1px solid #151B1B;
+}
+.signup_form form{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.signup_form .title{
+    font-size: 23px;
+    text-align: center;
+    padding: 10px;
+    background-color: #151B1B;
+    color: #FFFFFF;
+}
+.form-group{
+    margin-top: 10px;
+}
+#submits{
+    width: 100%;
+    background-color: #151B1B;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+#links{
+    color: #151B1B;
+    text-decoration: none;
+    font-weight: bold;
+}
