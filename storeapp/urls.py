@@ -18,9 +18,13 @@ from django.urls import path
 from home.views import home_view
 from signups.views import signup_view
 from logins.views import login_view
+from posts.views import allpost_view
+from profiles.views import profiles_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name = "homepage"),
     path('login/', login_view, name = "logins"),
     path('register/', signup_view, name = "signups"),
+    path('allposts/', allpost_view, name = "projects"),
+    path('profile/', profiles_view, name = "profile"),
 ]
