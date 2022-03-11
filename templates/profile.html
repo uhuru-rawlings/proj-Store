@@ -16,10 +16,10 @@
 {% block bio %}
    <div class="edditbios">
        <div class="buttons">
-           <button class="btn" id="addbios">Add Bio</button>
+           <button class="btn" id="addbios" onclick="showAddBio()" >Add Bio</button>
        </div>
-       <div class="bioform">
-           <div class="close"><i id="closebtn" class="fa-solid fa-xmark"></i></div>
+       <div class="bioform" id="bioform">
+           <div class="close"><i id="closebtn" onclick="hideAddBio()" class="fa-solid fa-xmark"></i></div>
            <form action="" method="post">
                {% csrf_token %}
                <div class="form-group">

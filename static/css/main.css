@@ -50,6 +50,7 @@
     left: 0;
     right: 0;
     background-color: rgba(21,27,27,0.7);
+    display: none;
 }
 .bioform form{
     background-color: #FFFFFF;
