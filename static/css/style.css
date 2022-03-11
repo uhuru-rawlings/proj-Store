@@ -68,7 +68,7 @@
     margin-top: -100px;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 10px 10px 15px rgba(21,27,27,0.5);
+    box-shadow: 3px 3px 5px rgba(21,27,27,0.5);
 }
 .postinfo{
     display: flex;
@@ -81,4 +81,42 @@
 .project_containers .images:hover{
     background-color: #f0f0f0;
     border-radius: 10px;
+}
+.footer{
+    margin-top: 100px;
+    color: #9DA2AB;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #151B1B;
+    align-items: center;
+}
+.footer .social_links{
+    width: 34%;
+    padding: 10px;
+}
+.footer ul li{
+    list-style: none;
+}
+.footer ul li a{
+    color: #9DA2AB;
+    font-size: 19px;
+}
+#useremail{
+    background-color: #d4d6da;
+    color: #151B1B;
+    width: 80%;
+}
+#submits{
+    background-color: #9DA2AB;
+    color: #151B1B;
+    font-size: 17px;
+    font-weight: bold;
+}
+.form{
+    width: 34%;
+    padding: 10px;
+}
+.about_text{
+    padding: 10px;
+    width: 30%;
 }
