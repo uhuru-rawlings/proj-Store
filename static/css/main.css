@@ -11,6 +11,7 @@
 }
 .userprofile{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 50px;
 }
@@ -62,10 +63,17 @@
     padding: 10px;
     border-radius: 10px;
 }
-.bioform form .form-group{
+.bioform form .form-group, .addprojectforms .form-group, .input-group{
     margin-top: 10px;
 }
 .bioform form textarea{
     height: 100px;
     resize: none;
+}
+.addprojects_form{
+    padding-bottom: 50px;
+}
+.addedprojects{
+    padding-top: 30px;
+    padding-bottom: 50px;
 }

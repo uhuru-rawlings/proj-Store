@@ -34,8 +34,31 @@
 {% endblock %}
 {% block body %}
 <div class="container">
-    <div class="addprojects_form"></div>
-    <div class="addedprojects"></div>
+    <div class="addprojects_form">
+        <h4 class="text-center">Add Projects</h4>
+        <div class="addprojectforms">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-heading"></i></span>
+                    <input type="text" name="projecttitle" id="projecttitle" placeholder="Enter title" autocomplete="off" class="form-control" required>
+                </div>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-link"></i></span>
+                    <input type="url" class="form-control" name="livelinks" placeholder="Project Live-Link" aria-label="Username" aria-describedby="addon-wrapping" id="livelinks">
+                  </div>
+                <div class="form-group">
+                    <input type="file" name="projectscreenshort" id="projectscreenshort" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="submit" id="addbios" class="btn" value="Upload Project">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="addedprojects">
+        <h4 class="text-center">My Projects</h4>
+    </div>
 </div>
 {% endblock %}
 {% block footer %}{% endblock %}body
