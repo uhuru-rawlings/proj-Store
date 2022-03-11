@@ -14,11 +14,16 @@
         <div class="title">Sign-Up Form</div>
         <form action="{% url 'signups' %}" method="post">
             {% csrf_token %}
-            <div class="form-group">
-                <input type="text" name="username" autocomplete="off" required id="username" class="form-control" placeholder="Enter username">
+            <div class="flex_inputs row">
+                <div class="form-group col">
+                    <input type="text" name="username" autocomplete="off" required id="username" class="form-control" placeholder="Enter username">
+                </div>
+                <div class="form-group col">
+                    <input type="email" name="useremails" autocomplete="off" required id="useremails" class="form-control" placeholder="Enter useremails">
+                </div>
             </div>
             <div class="form-group">
-                <input type="email" name="useremails" autocomplete="off" required id="useremails" class="form-control" placeholder="Enter useremails">
+                <input type="tel" name="phoneno" autocomplete="off" required id="phoneno" class="form-control" placeholder="Enter phonenumber">
             </div>
             <div class="form-group">
                 <input type="file" name="userimages" autocomplete="off" required id="userimages" class="form-control" placeholder="Enter useremails">
