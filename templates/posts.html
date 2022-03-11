@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}{{ title }}{% endblock %}
-{% block body %}
-<div class="container">
-    <div class="search_form"></div>
+{% block search %}
+<div class="container" id="searchcontainer">
+    <div class="search_form">
+        <div class="form-group">
+            <input type="search" name="searcjproject" id="searcjproject" class="form-control" required placeholder="Enter search projectname">
+        </div>
+    </div>
 </div>
 {% endblock %}
+{% block body %}{% endblock %}
 {% block footer %}{% endblock %}

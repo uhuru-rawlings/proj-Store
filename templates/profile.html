@@ -1,4 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}{{ title }}{% endblock %}
+{% block profile %}
+<div class="container">
+    <div class="userprofile">
+        <div class="textbio">
+            Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. 
+            Eligendi, hic. Delectus <br> accusantium deserunt blanditiis?
+        </div>
+        <div class="images">
+            <img src="../static/bgimages/design5.jpeg" height="200px" width="200px" alt="">
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block bio %}
+   <div class="edditbios">
+       <div class="buttons">
+           <button class="btn" id="addbios">Add Bio</button>
+       </div>
+       <div class="bioform">
+           <div class="close"><i id="closebtn" class="fa-solid fa-xmark"></i></div>
+           <form action="" method="post">
+               {% csrf_token %}
+               <div class="form-group">
+                  <textarea name="biotext" id="biotext" cols="30" rows="10" class="form-control" required placeholder="Enter bio here"></textarea>
+               </div>
+               <div class="form-group">
+                   <input type="submit" id="addbios" class="btn" value="Save Bio">
+               </div>
+           </form>
+       </div>
+   </div>
+{% endblock %}
 {% block body %}{% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}{% endblock %}body
