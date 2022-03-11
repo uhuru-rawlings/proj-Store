@@ -18,6 +18,7 @@ This is a djasngo project which allows users to signup and share their projects 
 
 Installing python [python docs](https://www.python.org/doc) <br>
 Installings Django <code>pip install django</code> <br>
+Installing restframework <code>pip install django_restframework</code>
 Installing postgres [install postgres](https://www.postgresqltutorial.com/install-postgresql)
 <br>
 creating virtual environment <code>python3 -m virtualenv virtual</code>
