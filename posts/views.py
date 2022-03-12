@@ -1,7 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 def allpost_view(request):
+    try:
+        user = request.COOKIES['logedin']
+    except:
+        return redirect('/login/')
     context = {
         'title': 'project store | all posts'
     }

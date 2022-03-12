@@ -8,6 +8,10 @@ from .serializers import RatedSerializer, PostSerializer, UserbioSerializer
 from django.shortcuts import get_object_or_404
 # Create your views here.
 def profiles_view(request):
+    try:
+        user = request.COOKIES['logedin']
+    except:
+        return redirect('/login/')
     context = {
         'title': 'project store | profile'
     }

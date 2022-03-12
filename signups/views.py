@@ -15,7 +15,7 @@ def signup_view(request):
         phone = request.POST['phoneno']
         userimage = request.FILES['userimages']
         passwords = request.POST['userpassword']
-        userdate = Usersignup(username=username,useremail=useremail,phone=phone,userimage=userimage,password=passwords)
+        userdate = Usersignup(username=username,useremail=useremail,phone=phone,userimage=userimage,passwords=passwords)
         # data = {'username':username,'useremail':useremail,'phone':phone,'userimage':userimage,'password':passwords}
         # headers = {'Content-Type': 'application/json'}
         # read = requests.post('http://127.0.0.1:8080/get_registreation/', json= data,headers = headers)

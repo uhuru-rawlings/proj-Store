@@ -18,18 +18,6 @@
        <div class="buttons">
            <button class="btn" id="addbios" onclick="showAddBio()" >Add Bio</button>
        </div>
-       <div class="bioform" id="bioform">
-           <div class="close"><i id="closebtn" onclick="hideAddBio()" class="fa-solid fa-xmark"></i></div>
-           <form action="" method="post">
-               {% csrf_token %}
-               <div class="form-group">
-                  <textarea name="biotext" id="biotext" cols="30" rows="10" class="form-control" required placeholder="Enter bio here"></textarea>
-               </div>
-               <div class="form-group">
-                   <input type="submit" id="addbios" class="btn" value="Save Bio">
-               </div>
-           </form>
-       </div>
    </div>
 {% endblock %}
 {% block body %}

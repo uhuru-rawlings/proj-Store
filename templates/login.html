@@ -14,6 +14,7 @@
         <div class="title">Sign-In Form</div>
         <form action="{% url 'logins' %}" method="post">
             {% csrf_token %}
+            <div class="text-danger text-center" style="font-size: 13px;">{{ error }}</div>
             <div class="form-group">
                 <input type="email" name="useremails" autocomplete="off" required id="useremails" class="form-control" placeholder="Enter useremails">
             </div>
