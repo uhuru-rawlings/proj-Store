@@ -97,3 +97,11 @@
 #mainviews{
     margin-top: 50px;
 }
+#fullmodelview{
+    position: absolute;
+    height: 100%;
+    margin: 100%;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
