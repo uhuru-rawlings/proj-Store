@@ -19,7 +19,8 @@ from home.views import home_view,signupnews_view
 from signups.views import signup_view
 from logins.views import login_view
 from posts.views import allpost_view
-from profiles.views import profiles_view
+from rest_framework.urlpatterns import format_suffix_patterns
+from profiles.views import profiles_view,ProjectViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name = "homepage"),
@@ -28,4 +29,5 @@ urlpatterns = [
     path('register/', signup_view, name = "signups"),
     path('allposts/', allpost_view, name = "projects"),
     path('profile/', profiles_view, name = "profile"),
+    path('get_projects/', ProjectViews.as_view())
 ]

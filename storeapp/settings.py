@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'profiles',
     'signups',
     'logins',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -104,6 +105,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

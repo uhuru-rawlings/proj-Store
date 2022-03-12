@@ -14,7 +14,7 @@ class Projects(models.Model):
         db_table = 'Projects'
 
     def __str__(self):
-        return self.user
+        return self.project_description
 
 class Userbio(models.Model):
     user = models.ForeignKey(Usersignup, on_delete = models.CASCADE)
