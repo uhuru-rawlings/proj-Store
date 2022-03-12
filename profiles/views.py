@@ -25,3 +25,21 @@ class ProjectViews(APIView):
             return Response(selialized.data)
         else:
             return Response({})
+
+class UserbioView(APIView):
+    def get(self, request):
+        bios = Userbio.objects.all()
+        if bios:
+            serialized = UserbioSerializer(bios, many = True)
+            return Response(serialized.data)
+        else:
+            return Response({})
+
+class RatedView(APIView):
+    def get(self, request):
+        reteds = Rated.objects.all()
+        if reteds:
+            serialized = RatedSerializer(reteds, many = True)
+            return Response(serialized.data)
+        else:
+            return Response({})

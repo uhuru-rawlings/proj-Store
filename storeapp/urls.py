@@ -20,7 +20,7 @@ from signups.views import signup_view
 from logins.views import login_view
 from posts.views import allpost_view
 from rest_framework.urlpatterns import format_suffix_patterns
-from profiles.views import profiles_view,ProjectViews
+from profiles.views import profiles_view,ProjectViews,UserbioView,RatedView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name = "homepage"),
@@ -29,5 +29,7 @@ urlpatterns = [
     path('register/', signup_view, name = "signups"),
     path('allposts/', allpost_view, name = "projects"),
     path('profile/', profiles_view, name = "profile"),
-    path('get_projects/', ProjectViews.as_view())
+    path('get_projects/', ProjectViews.as_view()),
+    path('get_bios/', UserbioView.as_view()),
+    path('get_ratings/', RatedView.as_view())
 ]
