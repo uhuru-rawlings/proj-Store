@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import home_view,signupnews_view
-from signups.views import signup_view
+from signups.views import signup_view,SignupView
 from logins.views import login_view
 from posts.views import allpost_view
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -31,5 +31,7 @@ urlpatterns = [
     path('profile/', profiles_view, name = "profile"),
     path('get_projects/', ProjectViews.as_view()),
     path('get_bios/', UserbioView.as_view()),
-    path('get_ratings/', RatedView.as_view())
+    path('get_ratings/', RatedView.as_view()),
+    path('get_registreation/', SignupView.as_view(), name="userregister"),
+
 ]
