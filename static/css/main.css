@@ -79,3 +79,21 @@
     padding-top: 30px;
     padding-bottom: 50px;
 }
+.flex_projects{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.flex_projects .project{
+    width: 30%;
+    height: 250px;
+}
+.project .image{
+    height: 200px;
+}
+.bold{
+    font-weight: bold;
+}
+#mainviews{
+    margin-top: 50px;
+}

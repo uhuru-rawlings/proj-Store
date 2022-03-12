@@ -1,15 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}{{ title }}{% endblock %}
 {% block search %}
-<div class="container" id="searchcontainer">
-    <div class="search_form">
-        <div class="form-group">
-            <form method="POST" action="{% url 'search' %}">{% csrf_token %}
-            <input type="search" name="searcjproject" id="searcjproject" class="form-control" required placeholder="Enter search projectname">
-            </form>
-        </div>
-    </div>
-</div>
 {% endblock %}
 {% block body %}
 <div class="container" id="mainviews">

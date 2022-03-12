@@ -14,11 +14,16 @@ def profiles_view(request):
         users = Usersignup.objects.get(useremail=user)
     except:
         return redirect('/login/')
+    try:
+        projects = Projects.objects.filter(user= users).order_by('-id')
+    except:
+        projects = "None"
     bio = Userbio.objects.get(user=users)
     context = {
         'title': 'project store | profile',
         'users':users,
-        'bio':bio
+        'bio':bio,
+        'projects':projects
     }
     return render(request, "profile.html", context)
 

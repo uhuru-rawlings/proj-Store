@@ -18,9 +18,12 @@ from django.urls import path
 from home.views import home_view,signupnews_view
 from signups.views import signup_view,SignupView
 from logins.views import login_view
-from posts.views import allpost_view
+from posts.views import allpost_view,search_view
 from rest_framework.urlpatterns import format_suffix_patterns
 from profiles.views import profiles_view,ProjectViews,UserbioView,RatedView,save_projectView,save_bioView
+from django.contrib.staticfiles.urls import static
+from . import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name = "homepage"),
@@ -29,6 +32,7 @@ urlpatterns = [
     path('register/', signup_view, name = "signups"),
     path('allposts/', allpost_view, name = "projects"),
     path('profile/', profiles_view, name = "profile"),
+    path('search/', search_view, name = "search"),
     path('save_project/', save_projectView, name = "saveproject"),
     path('save_bio/', save_bioView, name = "savebio"),
     path('get_projects/', ProjectViews.as_view()),
@@ -36,4 +40,4 @@ urlpatterns = [
     path('get_ratings/', RatedView.as_view()),
     path('get_registreation/', SignupView.as_view(), name="userregister"),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

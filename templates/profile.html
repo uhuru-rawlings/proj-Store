@@ -10,7 +10,7 @@
             <div class="bio">Bio: <span style="font-size: 16px;">{{ bio.bio }}</span></div>
         </div>
         <div class="images">
-            <img src="../media/profiles/r-architecture-2gDwlIim3Uw-unsplash.jpg" height="200px" width="200px" alt="">
+            <img src="{{ users.userimage.url }}" height="200px" width="200px" alt="">
         </div>
     </div>
 </div>
@@ -51,6 +51,26 @@
     </div>
     <div class="addedprojects">
         <h4 class="text-center">My Projects</h4>
+        <div class="flex_projects">
+            {% if projects != 'None'%}
+            {% for project in projects %}
+                <div class="project">
+                    <div class="image">
+                        <img src="{{ project.project_image.url }}" height="100%" width="100%" alt="">
+                    </div>
+                    <div class="contexts">
+                        <div class="row">
+                            <div class="col">Title: <span class="bold">{{ project.proj_title }}</span> </div>
+                            <div class="col">Link: <a target="blank" href="{{ project.project_link }}">Live</a> </div>
+                        </div>
+                        <div class="text">{{ project.project_description }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+            {% else %}
+            <div class="text-danger text-center" style="width: 100%;">No post for this profile.</div>
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}
