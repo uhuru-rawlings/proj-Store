@@ -15,7 +15,7 @@
 <body>
     <div class="bioform" id="bioform">
         <div class="close"><i id="closebtn" onclick="hideAddBio()" class="fa-solid fa-xmark"></i></div>
-        <form action="" method="post">
+        <form action="{% url 'savebio' %}" method="post">
             {% csrf_token %}
             <div class="form-group">
                <textarea name="biotext" id="biotext" cols="30" rows="10" class="form-control" required placeholder="Enter bio here"></textarea>

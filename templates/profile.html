@@ -4,11 +4,13 @@
 <div class="container">
     <div class="userprofile">
         <div class="textbio">
-            Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. 
-            Eligendi, hic. Delectus <br> accusantium deserunt blanditiis?
+            <div class="name">Name: {{ users.username }}</div>
+            <div class="email">Email: {{ users.useremail }}</div>
+            <div class="phone">Phone: {{ users.phone }}</div>
+            <div class="bio">Bio: {{ bio.bio }}</div>
         </div>
         <div class="images">
-            <img src="../static/bgimages/design5.jpeg" height="200px" width="200px" alt="">
+            <img src="../media/{{users.userimage}}" height="200px" width="200px" alt="">
         </div>
     </div>
 </div>
@@ -25,7 +27,7 @@
     <div class="addprojects_form">
         <h4 class="text-center">Add Projects</h4>
         <div class="addprojectforms">
-            <form action="" method="post">
+            <form action="{% url 'saveproject' %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-heading"></i></span>
@@ -37,6 +39,9 @@
                   </div>
                 <div class="form-group">
                     <input type="file" name="projectscreenshort" id="projectscreenshort" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <textarea name="descriptions" id="descriptions" cols="30" style="resize: none; height: 100px;" rows="10" class="form-control" placeholder="Enter description" required></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" id="addbios" class="btn" value="Upload Project">

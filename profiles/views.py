@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from profiles.models import Projects, Userbio, Rated
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
@@ -6,17 +6,56 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import RatedSerializer, PostSerializer, UserbioSerializer
 from django.shortcuts import get_object_or_404
+from signups.models import Usersignup
 # Create your views here.
 def profiles_view(request):
     try:
         user = request.COOKIES['logedin']
+        users = Usersignup.objects.get(useremail=user)
     except:
         return redirect('/login/')
+    bio = Userbio.objects.get(user=users)
     context = {
-        'title': 'project store | profile'
+        'title': 'project store | profile',
+        'users':users,
+        'bio':bio
     }
     return render(request, "profile.html", context)
 
+def save_projectView(request):
+    if request.method == 'POST':
+        try:
+            user = request.COOKIES['logedin']
+            users = Usersignup.objects.get(useremail=user)
+        except:
+            return redirect('/login/')
+        projecttitle = request.POST['projecttitle']
+        livelinks = request.POST['livelinks']
+        projectscreenshort = request.FILES['projectscreenshort']
+        descriptions = request.POST['descriptions']
+
+        new_project = Projects(user = users,proj_title = projecttitle,project_link = livelinks, project_image = projectscreenshort,project_description = descriptions)
+        new_project.save()
+        return redirect('/profile/')
+
+def save_bioView(request):
+    if request.method == 'POST':
+        bion = request.POST['biotext']
+        try:
+            user = request.COOKIES['logedin']
+            users = Usersignup.objects.get(useremail=user)
+        except:
+            return redirect('/login/')
+        check_bio = Userbio.objects.filter(user=users).exists()
+        if check_bio:
+            bios = Userbio.objects.filter(user=users)
+            bios.update(bio = bion)
+            return redirect('/profile/')
+        else:
+            new_bio = Userbio(user=users, bio=bion)
+            new_bio.save()
+
+            return redirect('/profile/')
 
 class ProjectViews(APIView):
     def get(self, request):
