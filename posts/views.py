@@ -38,14 +38,17 @@ def ratings_views(request):
             users = Usersignup.objects.get(useremail=user)
         except:
             return redirect('/login/')
-        postid = request.POST['retedpost']
         design = request.POST['designs']
         usability = request.POST['usability']
         content = request.POST['content']
-        posts = Projects.objects.get(id = postid)
-        avarage_rated = (usability + design + content) / 30
-
-        new_ratings = Rated(post= posts, rated_by = users, rated_count = avarage_rated)
-
-        new_ratings.save()
+        avarage_rated = (int(usability) + int(design) + int(content)) / 3
+        postid = request.POST['retedpost']
+        posts = Projects.objects.get(id = int(postid))
+        try:
+            getrated = Rated.objects.get(post= posts)
+            totals = avarage_rated + getrated.rated_count
+            getrated.update(rated_count = totals)
+        except:
+            new_ratings = Rated(post= posts, rated_by = users, rated_count = avarage_rated)
+            new_ratings.save()
         return redirect("/allposts/")
