@@ -86,7 +86,7 @@
 }
 .flex_projects .project{
     width: 30%;
-    height: 250px;
+    height: 300px;
 }
 .project .image{
     height: 200px;
@@ -104,4 +104,58 @@
     top: 0;
     bottom: 0;
     display: none;
+}
+.ratings_form{
+    position: sticky;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(21,27,27,0.7);
+    color: #9DA2AB;
+}
+.ratings_form form{
+    width: 40%;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 20px;
+}
+.form-group{
+    margin-top: 10px;
+}
+#retbutton, .retbutton{
+    background-color: #151B1B;
+    color: #9DA2AB;
+    transition: 2s;
+}
+#retbutton:hover, .retbutton:hover{
+    color: #151B1B;
+    background-color: #9DA2AB;
+}
+::placeholder{
+    color:#9DA2AB;
+}
+#retinmgsform{
+    display: none;
+}
+.flex_projects .project{
+    position: relative;
+}
+.flex_projects .project:hover .ratedpos{
+    display: block;
+}
+.ratedpos{
+    position: absolute;
+    background-color: rgba(21,27,27,0.2);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+}
+.ratedpos button{
+    margin-top: 100px;
+    margin-left: 100px;
 }

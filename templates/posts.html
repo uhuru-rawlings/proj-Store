@@ -27,12 +27,40 @@
                     </div>
                     <div class="text">{{ project.project_description }}</div>
                 </div>
+                <div class="ratedpos">
+                    <button class="btn retbutton" id="{{ project.id }}" onclick="showratings(this.id)">rate this post</button>
+                </div>
             </div>
+            
         {% endfor %}
         {% else %}
         <div class="text-danger text-center" style="width: 100%;">No post for this profile.</div>
         {% endif %}
     </div>
+</div>
+{% load static %}
+<script src="{% static 'js/models.js'%}"></script>
+<div class="ratings_form" id="retinmgsform">
+    <div class="close"><i id="closebtn" onclick="hideratings()" class="fa-solid fa-xmark"></i></div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>On a scale of 1 - 10 rate this project based on content, usability and design</p>
+        <div class="form-group">
+            <input type="number" name="retedpost" disabled= "disabled" id="retedpost" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="number" max="10" min="0" required name="designs" id="designs" class="form-control" placeholder="rate based on design">
+        </div>
+        <div class="form-group">
+            <input type="number" max="10" min="0" required name="usability" id="usability" class="form-control" placeholder="rate based on usability">
+        </div>
+        <div class="form-group">
+            <input type="number" max="10" min="0" required name="content" id="content" class="form-control" placeholder="rate based on content">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Rate" class="btn" id="retbutton">
+        </div>
+    </form>
 </div>
 {% endblock %}
 {% block footer %}{% endblock %}
