@@ -42,7 +42,7 @@
 <script src="{% static 'js/models.js'%}"></script>
 <div class="ratings_form" id="retinmgsform">
     <div class="close"><i id="closebtn" onclick="hideratings()" class="fa-solid fa-xmark"></i></div>
-    <form action="" method="post">
+    <form action="{% url 'projratings' %}" method="post">
         {% csrf_token %}
         <p>On a scale of 1 - 10 rate this project based on content, usability and design</p>
         <div class="form-group">
