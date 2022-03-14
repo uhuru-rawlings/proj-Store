@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from profiles.models import Projects,Rated
 from signups.models import Usersignup
 # Create your views here.
@@ -64,3 +64,8 @@ def ratings_views(request):
             new_ratings.save()
            
         return redirect("/allposts/")
+
+def logout(request):
+        response = HttpResponseRedirect('/login/')
+        response.delete_cookie('logedin')
+        return response

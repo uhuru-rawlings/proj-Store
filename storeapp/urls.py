@@ -18,7 +18,7 @@ from django.urls import path
 from home.views import home_view,signupnews_view
 from signups.views import signup_view,SignupView
 from logins.views import login_view
-from posts.views import allpost_view,search_view,ratings_views
+from posts.views import allpost_view,search_view,ratings_views,logout
 from rest_framework.urlpatterns import format_suffix_patterns
 from profiles.views import profiles_view,ProjectViews,UserbioView,RatedView,save_projectView,save_bioView
 from django.contrib.staticfiles.urls import static
@@ -36,6 +36,7 @@ urlpatterns = [
     path('search/', search_view, name = "search"),
     path('save_project/', save_projectView, name = "saveproject"),
     path('save_bio/', save_bioView, name = "savebio"),
+    path('logout/',logout,name= 'logout'),
     path('get_projects/', ProjectViews.as_view()),
     path('get_bios/', UserbioView.as_view()),
     path('get_ratings/', RatedView.as_view()),
