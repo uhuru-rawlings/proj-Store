@@ -45,7 +45,7 @@ def ratings_views(request):
         postid = request.POST['retedpost']
         posts = Projects.objects.get(id = int(postid))
         try:
-            getrated = Rated.objects.get(post= posts)
+            getrated = Rated.objects.get(post = posts.id)
             totals = avarage_rated + getrated.rated_count
             getrated.update(rated_count = totals)
         except:
