@@ -37,9 +37,9 @@ urlpatterns = [
     path('save_project/', save_projectView, name = "saveproject"),
     path('save_bio/', save_bioView, name = "savebio"),
     path('logout/',logout,name= 'logout'),
-    path('get_projects/', ProjectViews.as_view()),
-    path('get_bios/', UserbioView.as_view()),
-    path('get_ratings/', RatedView.as_view()),
+    path('get_projects/', ProjectViews.as_view(), name= "api_projects"),
+    path('get_bios/', UserbioView.as_view(), name="api_bios"),
+    path('get_ratings/', RatedView.as_view(), name= "api_ratings"),
     path('get_registreation/', SignupView.as_view(), name="userregister"),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

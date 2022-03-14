@@ -18,7 +18,10 @@ def profiles_view(request):
         projects = Projects.objects.filter(user= users).order_by('-id')
     except:
         projects = "None"
-    bio = Userbio.objects.get(user=users)
+    try:
+        bio = Userbio.objects.get(user=users)
+    except:
+        bio = "nobio"
     context = {
         'title': 'project store | profile',
         'users':users,

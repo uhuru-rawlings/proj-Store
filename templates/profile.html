@@ -7,7 +7,11 @@
             <div class="name">Name: {{ users.username }}</div>
             <div class="email">Email: {{ users.useremail }}</div>
             <div class="phone">Phone: {{ users.phone }}</div>
-            <div class="bio">Bio: <span style="font-size: 16px;">{{ bio.bio }}</span></div>
+           {% if bios != 'nobio' %}
+             <div class="bio">Bio: <span style="font-size: 16px;">{{ bio.bio }}</span></div>
+           {% else %}
+           <div class="bio">Bio: <span style="font-size: 16px;">No bio</span></div>
+           {% endif %}
         </div>
         <div class="images">
             <img src="{{ users.userimage.url }}" height="200px" width="200px" alt="">
@@ -74,4 +78,34 @@
     </div>
 </div>
 {% endblock %}
-{% block footer %}{% endblock %}body
+{% block footer %}
+<div class="apiendpoint">
+    <div class="container">
+        <p>API endpoints</p>
+        <ul>
+            <li><a target ='_blank' href="{% url 'userregister' %}">Profile</a></li>
+            <li><a target ='_blank' href="{% url 'api_bios' %}">Bio</a></li>
+            <li><a target ='_blank' href="{% url 'api_projects' %}">Posts</a></li>
+            <li><a target ='_blank' href="{% url 'api_ratings' %}">Ratings</a></li>
+        </ul>
+        <style>
+            .apiendpoint{
+                background-color: #151B1B;
+                color: #9DA2AB;
+                margin-bottom: 0;
+                padding: 10px;
+            }
+            a{
+                text-decoration: none;
+                color: #9DA2AB;
+            }
+            .apiendpoint ul li{
+                list-style: none;
+                display: inline;
+                padding: 15px;
+                margin-right: 10px;
+            }
+        </style>
+    </div>
+</div>
+{% endblock %}body
