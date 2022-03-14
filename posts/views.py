@@ -11,9 +11,18 @@ def allpost_view(request):
         projects = Projects.objects.all().order_by('-id')
     except:
         projects = "None"
+    try:
+        rating = Rated.objects.all()
+    except:
+        rating = "noratings"
+    # ratings = []
+    # if rating != "noratings":
+    #     for rate in rating:
+    #         rate.post
     context = {
         'title': 'project store | all posts',
-        'projects':projects
+        'projects':projects,
+        'rating':rating
     }
     return render(request, "posts.html", context)
 
@@ -44,11 +53,14 @@ def ratings_views(request):
         avarage_rated = (int(usability) + int(design) + int(content)) / 3
         postid = request.POST['retedpost']
         posts = Projects.objects.get(id = int(postid))
-        try:
-            getrated = Rated.objects.get(post = posts.id)
-            totals = avarage_rated + getrated.rated_count
-            getrated.update(rated_count = totals)
-        except:
+        getrated = Rated.objects.filter(post_id = postid).exists()
+        if getrated:
+            getrateds = Rated.objects.get(post_id = postid)
+            totals = avarage_rated + getrateds.rated_count
+            getrateds.rated_count = totals
+            getrateds.save()
+        else:
             new_ratings = Rated(post= posts, rated_by = users, rated_count = avarage_rated)
             new_ratings.save()
+           
         return redirect("/allposts/")

@@ -20,9 +20,16 @@
                 <div class="image">
                     <img src="{{ project.project_image.url }}" height="100%" width="100%" alt="">
                 </div>
+                {% if rating != 'noratings' %}
+                  {% for rate in rating %}
+                      {% if rate.post.id == project.id %}
+                         <div class="rated" style="font-weight: bold;font-size: 12px;">rated : {{ rate.rated_count }}</div>
+                      {% endif %}
+                  {% endfor %}
+                {% endif %}
                 <div class="contexts">
                     <div class="row">
-                        <div class="col">Title: <span class="bold">{{ project.proj_title }}</span> </div>
+                        <div class="col">Title: <span class="bold" style="font-size: 12px;">{{ project.proj_title }}</span> </div>
                         <div class="col">Link: <a target="blank" href="{{ project.project_link }}">Live</a> </div>
                     </div>
                     <div class="text">{{ project.project_description }}</div>
